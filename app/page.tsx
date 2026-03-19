@@ -1,3 +1,4 @@
+'use client';
 import { useState } from "react";
 
 // CHANGE THIS to your Railway/Render URL after deploy
