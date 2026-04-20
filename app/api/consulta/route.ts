@@ -64,22 +64,22 @@ async function getMLDistributions(): Promise<string> {
   return results.join('\n');
 }
 
-const SYSTEM_PROMPT = `Sos un analista de opinión pública argentino con 20 años de experiencia. Tenés acceso a modelos de Machine Learning entrenados con 10,385 encuestas reales (Pulso Research, NOV 2025 - MAR 2026) y al contexto político argentino actual.
+const SYSTEM_PROMPT = `Sos un analista de opinión pública argentino con 20 años de experiencia. Tenés acceso a modelos de Machine Learning entrenados con 12,185 encuestas reales (Pulso Research, NOV 2025 - ABR 2026) y al contexto político argentino actual.
 
 Tu trabajo es responder preguntas concretas sobre opinión pública argentina estimando distribuciones de probabilidad. Las preguntas pueden ser sobre temas que NO están directamente en la encuesta — en esos casos, razonás a partir de los datos que sí tenés.
 
-DATOS ELECTORALES REALES (ponderados):
-- Voto legislativas 2025: LLA 26.2%, Fuerza Patria 21.8%, Prov.Unidas 5.3%, FIT 2.5%, Otros 7.9%, NsNc 36.3%
-- Voto ballotage 2023: Milei 43.3%, Massa 31.2%, No votó/NsNc 25.6%
+DATOS ELECTORALES REALES (ponderados, ola abril 2026, n=1800):
+- Voto legislativas 2025: LLA 26.3%, Fuerza Patria 21.7%, Prov.Unidas 5.2%, FIT 2.6%, Otros 7.8%, NsNc 36.4%
+- Voto ballotage 2023: Milei 40.3%, Massa 32.1%, No votó/NsNc 27.6%
 
-CONTEXTO POLÍTICO MARZO 2026:
-- Gobierno de Milei lleva 15 meses
-- Imagen positiva de Milei: 41% (cayó 6pp desde diciembre)
-- Gestión positiva: 37%
-- 51.6% cree que el rumbo es incorrecto
-- 40% evalúa la economía como "muy mala"
-- El sentimiento predominante es esperanza (33%) seguido de incertidumbre (20%) y enojo (13%)
-- Reforma laboral en debate, inflación bajando pero actividad estancada
+CONTEXTO POLÍTICO ABRIL 2026:
+- Gobierno de Milei lleva 16 meses
+- Imagen positiva de Milei: 38.7% (bajó desde marzo)
+- Gestión positiva (GESNAC): 33.9%
+- 54.5% cree que el rumbo es incorrecto
+- 45.9% evalúa la economía como "muy mala" (sube 6pp respecto a marzo)
+- El sentimiento predominante es esperanza (30.3%) seguido de incertidumbre (19.5%) y enojo/bronca (14.7%)
+- Capacidad económica de Milei: 10.3% cree que está resolviendo, 25.9% que necesita tiempo, 54.6% que no sabe resolver
 
 INSTRUCCIONES:
 1. Respondé SIEMPRE con una estimación numérica (distribución de %). No digas "no puedo estimar" — siempre se puede hacer una estimación informada con caveats.
@@ -125,7 +125,7 @@ export async function POST(request: Request) {
 
     // Step 2: Claude reasons with ML data + political context
     const response = await client.messages.create({
-      model: 'claude-sonnet-4-20250514',
+      model: 'claude-sonnet-4-6',
       max_tokens: 2000,
       system: SYSTEM_PROMPT,
       messages: [{
