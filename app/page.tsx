@@ -166,7 +166,7 @@ export default function PulsoCuanti() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-lg font-bold text-slate-800 tracking-tight">Panel Pulso <span className="text-violet-600">Cuanti</span></h1>
-              <p className="text-xs text-slate-400">Pronóstico de opinión pública · 10,385 encuestas + ML + IA</p>
+              <p className="text-xs text-slate-400">Pronóstico de opinión pública · 12,185 encuestas + ML + IA</p>
             </div>
             <span className="text-xs bg-violet-100 text-violet-700 px-2.5 py-1 rounded-full font-medium">v4.2</span>
           </div>
@@ -181,7 +181,7 @@ export default function PulsoCuanti() {
             <div className="mt-8 mb-12">
               <h2 className="text-2xl font-bold text-slate-800 text-center tracking-tight">Hacé una pregunta sobre opinión pública</h2>
               <p className="text-sm text-slate-400 text-center mt-2 max-w-lg mx-auto leading-relaxed">
-                El sistema combina modelos de Machine Learning entrenados con 10,385 encuestas reales
+                El sistema combina modelos de Machine Learning entrenados con 12,185 encuestas reales
                 con razonamiento de IA para estimar respuestas a preguntas que no están directamente en la encuesta.
               </p>
 
@@ -250,7 +250,7 @@ export default function PulsoCuanti() {
               Consultar
             </button>
           </div>
-          <p className="text-center text-xs text-slate-300 mt-2">ML sobre 10,385 encuestas reales (Pulso Research, NOV 2025 — MAR 2026) + razonamiento IA</p>
+          <p className="text-center text-xs text-slate-300 mt-2">ML sobre 12,185 encuestas reales (Pulso Research, NOV 2025 — ABR 2026) + razonamiento IA</p>
         </div>
       </div>
     </div>
